@@ -52,3 +52,26 @@ console.log(tipoDeDatoDesconocido.toUpperCase());
 console.log("Tu nombre es " +nombre);
 console.log(`Tu nombre es ${nombre}`);
 
+//ARRAYS
+
+let numeros: number[] = [1,2,5,8]
+let numeros2: number[] = [6,3,9,10]
+console.log(`La posicion 0 del array es: ${numeros[2]}`);
+//Diferentes datos
+
+let mixto:(number|string)[]=[1,"Hola", 6];
+
+//Dos dimensiones
+
+let array2d:number[][]=[[1,2,3], [4,5,6], [7,8,9]]
+if(array2d[0]|| array2d[0]!=undefined){
+    console.log("La posicion 0,0 del array2d es" + array2d)
+}
+console.log(`La posicion 0 del array es: ${array2d[0]!=undefined ? array2d[0][0] : 0}`);
+
+//Concatenar arrays
+
+let numeros3= [...numeros,...numeros2]
+console.log(numeros3);
+numeros3[0]=10;
+console.log(numeros3);
