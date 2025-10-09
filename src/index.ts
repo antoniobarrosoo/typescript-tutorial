@@ -75,3 +75,37 @@ let numeros3= [...numeros,...numeros2]
 console.log(numeros3);
 numeros3[0]=10;
 console.log(numeros3);
+
+//MÉTODOS PARA TRABAJAR CON ARRAYS
+
+let anumeros= [1, 3, 5, 7, 9];
+
+//PUSH
+anumeros.push(11);//[1,3,5,7,9,11]
+
+//POP
+anumeros.pop()//[1,3,5,7,9
+
+anumeros.push(13,15,17);
+
+//UNSHIFT-SHIFT
+
+anumeros.unshift(0);
+console.log(anumeros);
+console.log(anumeros.shift());
+
+//ACCESO, REEMPLAZO
+anumeros[0]=-1;
+console.log(anumeros[0]);
+console.log(anumeros.length);
+
+//BÚSQUEDA DE ELEMENTOS
+
+let frutas= ["manzana", "pera", "mandarina"];
+
+console.log(frutas.indexOf("mandarina"));
+
+//Includes
+console.log(frutas.includes("manzana"));
+
+//FIND = búsqueda de un elemento que cumple una determinada condición
