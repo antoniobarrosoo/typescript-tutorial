@@ -108,4 +108,49 @@ console.log(frutas.indexOf("mandarina"));
 //Includes
 console.log(frutas.includes("manzana"));
 
-//FIND = búsqueda de un elemento que cumple una determinada condición
+//FIND = búsqueda primer elemento que cumple una determinada condición
+console.log(frutas.find((value)=>{return value.length>5;}))
+
+//FINDINDEX
+console.log(frutas.findIndex((value)=>{return value.length>5;}))
+
+//FOREACH
+
+frutas.forEach((valor:string)=>{console.log(valor)})
+console.log("--------------")
+frutas.forEach((valor:string)=>{valor.length >5 ? console.log(valor):null})
+
+//MAP -> TRANSFORMAR LOS ELEMENTOS DE UN ARRAY SIN MODIFICAR EL ORIGINAL
+console.log("--------------")
+let frutaUpper= frutas.map((fruta:string)=>{return fruta.toUpperCase()});
+console.log(frutaUpper)
+
+console.log("--------------")
+
+//FILTER -> FILTRAR LOS ELEMENTOS DE UN ARRAY
+let frutasFiltradas= frutas.filter((frutas:string)=>{return frutas.length>6})
+console.log(frutasFiltradas);
+
+//REDUCE -> ACUMULAR EL VALOR
+let arrayNumeros=[1,6,10,3,5];
+arrayNumeros.reduce((acc:number, elementoActual:number)=>{return acc=acc+elementoActual})
+let minNombre=["Antonio", "Barroso", "Rodríguez"]
+let nombreConcatenado= minNombre.reduce((elementoAnterior, elementoActual)=>{return elementoAnterior+=" "+elementoActual})
+
+//SORT
+console.log(nombreConcatenado)
+console.log(arrayNumeros.sort((a:number, b:number)=>{return a-b}));
+
+//SLICE
+console.log("--------------")
+console.log(minNombre.slice(0,2));
+
+//JOIN
+console.log(minNombre.join(" "));
+
+//TUPLAS
+console.log("--------------")
+let nombreEdad: [string,number];
+nombreEdad=["Antonio", 20]
+console.log(`Mi nombre es${nombreEdad[0]}`)
+console.log(`Tengo ${nombreEdad[1]} años`)
