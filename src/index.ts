@@ -154,3 +154,27 @@ let nombreEdad: [string,number];
 nombreEdad=["Antonio", 20]
 console.log(`Mi nombre es${nombreEdad[0]}`)
 console.log(`Tengo ${nombreEdad[1]} años`)
+
+//DICCIONARIOS
+ console.log("--------------")
+let diccionario={1: "Antonio", 2:"Manolo"};
+console.log(diccionario[1]);
+
+//FUNCION DECLARAS
+/**
+ * Función para sumar dos elementos
+ * @param a primer parametro a sumar
+ * @param b segundo parametro a sumar
+ * @returns numero sumado
+ */
+function sumar(a:number, b:number):number{
+    return a+b;
+}
+let suma2numeros= sumar(10,20);
+console.log(suma2numeros)
+
+//FUNCIONES ANÓNIMAS
+
+const fResta= function (a:number, b:number){return a-b};
+
+console.log(fResta(5,2))
