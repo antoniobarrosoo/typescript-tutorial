@@ -1,3 +1,4 @@
+
 /**
  * Declaración de variables
  * 
@@ -173,8 +174,21 @@ function sumar(a:number, b:number):number{
 let suma2numeros= sumar(10,20);
 console.log(suma2numeros)
 
-//FUNCIONES ANÓNIMAS
+//NO TIENE HOISTING
 
 const fResta= function (a:number, b:number){return a-b};
 
 console.log(fResta(5,2))
+console.log("--------------")
+
+function saludar(nombre:string, apellido?:string){
+
+
+    //Operador ternario
+    apellido!=undefined ? console.log(`Hola ${apellido}`): console.log(`Hola ${nombre}`)
+    
+
+
+    //Otra forma
+    console.log(`Hola ${nombre} ${apellido ?? ""}`)
+}
