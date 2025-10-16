@@ -112,6 +112,16 @@ console.log(frutas.includes("manzana"));
 //FIND = búsqueda primer elemento que cumple una determinada condición
 console.log(frutas.find((value)=>{return value.length>5;}))
 
+function buscar(frutas:string[]):string{
+    for(let x=0; x<frutas.length;x++){
+        const valorX= frutas[x];
+
+        if(valorX!=undefined && valorX.length>5){
+            return valorX;
+            break;
+        }
+    }
+}
 //FINDINDEX
 console.log(frutas.findIndex((value)=>{return value.length>5;}))
 
