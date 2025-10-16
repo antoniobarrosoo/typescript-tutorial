@@ -112,7 +112,7 @@ console.log(frutas.includes("manzana"));
 //FIND = búsqueda primer elemento que cumple una determinada condición
 console.log(frutas.find((value)=>{return value.length>5;}))
 
-function buscar(frutas:string[]):string{
+function buscar(frutas:string[]):string|undefined{
     for(let x=0; x<frutas.length;x++){
         const valorX= frutas[x];
 
@@ -122,6 +122,9 @@ function buscar(frutas:string[]):string{
         }
     }
 }
+//NOT NULL ASSERTION
+//valor[x]!.length=ejecuta si o si
+//valor[x]?.length= en caso de que valor[x] no sea undefined o null no se ejecuta el length
 //FINDINDEX
 console.log(frutas.findIndex((value)=>{return value.length>5;}))
 
@@ -202,3 +205,46 @@ function saludar(nombre:string, apellido?:string){
     //Otra forma
     console.log(`Hola ${nombre} ${apellido ?? ""}`)
 }
+
+
+//FUNCIÓN CON PARÁMETROS X DEFECTO
+function potencia(base:number, exponent:number=2){
+    return base**exponent;
+}
+console.log(potencia(2));
+console.log(potencia(2,10));
+
+//FUNCIPNES FLECHAS (parametros)=>{operaciones}
+
+const fflecha= (a:number)=>{return a;}
+//FUNCIÓN CALVA
+function math(a:number, b:number, operacion:(a:number,b:number)=>number){
+    return operacion(a,b);
+}
+const farrowSumar=(a:number, b:number)=>{return a+b;}
+const fanonRestar=(a:number, b:number)=>{return a+b;}
+
+math(1,5,farrowSumar);
+math(1,5,fanonRestar);
+
+
+
+function fforeach(datos:string[], operacion:(dato:string | undefined)=>void){
+
+    for(let x=0; x<datos.length; x++){
+        const valor= datos[x];
+        operacion(valor);
+    }
+}
+const mostrar=(dato:string)=>{console.log(dato)}
+frutas.forEach(mostrar);
+
+//PASARLE A FUNCTION NUMERO INDEFINIDO DE PARAMETROS
+
+function multipleParam(...valores:number[]){
+
+let suma= valores.reduce((previosValue:number, currentValue:number)=>{return previosValue+=currentValue}, 0)
+
+console.log(suma)
+}
+multipleParam(4,3,2,1,1);
