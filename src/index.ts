@@ -1,3 +1,4 @@
+import console = require("console");
 
 /**
  * Declaración de variables
@@ -248,3 +249,23 @@ let suma= valores.reduce((previosValue:number, currentValue:number)=>{return pre
 console.log(suma)
 }
 multipleParam(4,3,2,1,1);
+
+interface DataAPI{
+
+    message:string,
+    status:string
+}
+
+//FUNCIONES ASÍNCRONAS
+
+async function getApiData(url:string):Promise<DataAPI> {
+
+    const respuesta= await fetch(url)//Obtener datos de una API
+    const datos= respuesta.json() as Promise<DataAPI>
+    return datos;
+}
+getApiData("https://dog.ceo/api/breeds/image/random")
+.then((value:DataAPI)=>{console.log(value.message)})
+.catch((error)=>{console.log(error)});
+
+console.log("ADIOS")
