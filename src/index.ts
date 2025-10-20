@@ -304,20 +304,35 @@ const alertConfiguration={
     type:'danger',
     position:'center'
 }
+//const fRestarr= function (a:number, b:number, c:number) {return c!=undefined ? a-b-c: a-b}
+//fRestarr(1,2,4);
+
+
 
 //TYPE
 //Es una plantilla que me va a permitir a reutilizar código
+type idTemplate=`uid-${number}`
 type usuario = {
-    readonly id:number,
+    readonly id:idTemplate,
     username:string,
     email:string,
     estaActivo:boolean,
-   
+   profileURL?:string//Puede q tenga este atributo o no, pqq tiene ?
 }
+type puestoTrabajo={
+    puestoTrabajo:string,
+    oficina:string
+}
+type Empleado = usuario & puestoTrabajo;
+
     let u1:usuario={
-    id:1,
+    id:"uid-9",
     username:"abarrod822",
     email:"abarrod822@gmail.com",
     estaActivo:true
+    
 }
-u1.email="antonbarroso@gmail.com";
+console.log(u1.id)
+
+type Saludo =`Hola ${string}`
+let mensaje:Saludo ="Hola 1"
