@@ -1,4 +1,5 @@
 import console = require("console");
+import os = require("os");
 
 /**
  * Declaración de variables
@@ -269,3 +270,54 @@ getApiData("https://dog.ceo/api/breeds/image/random")
 .catch((error)=>{console.log(error)});
 
 console.log("ADIOS")
+
+//CREACIÓN DE OBJETOS LITERALES
+
+let persona = {
+    id: 1,
+    nombre:"Antonio",
+    apellido:"Barroso",
+    edad:20,
+    direccion:{
+        calle: "Pol.Rancho",
+        ciudad:" Morón de la Frontera"
+    },
+    esMayorEdad: function ():boolean {return this.edad>=18?true:false}
+}
+console.log(persona[`nombre`])
+console.log(persona.direccion.ciudad);
+console.log(persona.esMayorEdad);
+persona.edad=15;
+let persona2={
+    id:2,
+    nombre:"Juan"
+}
+
+const config={
+    version:"1.0.0",
+    appName:"TypeScript-Tutorial",
+    developer:"Antonio"  
+}
+
+const alertConfiguration={
+    time:200,
+    type:'danger',
+    position:'center'
+}
+
+//TYPE
+//Es una plantilla que me va a permitir a reutilizar código
+type usuario = {
+    readonly id:number,
+    username:string,
+    email:string,
+    estaActivo:boolean,
+   
+}
+    let u1:usuario={
+    id:1,
+    username:"abarrod822",
+    email:"abarrod822@gmail.com",
+    estaActivo:true
+}
+u1.email="antonbarroso@gmail.com";
