@@ -336,3 +336,21 @@ console.log(u1.id)
 
 type Saludo =`Hola ${string}`
 let mensaje:Saludo ="Hola 1"
+
+//Uniones usando |
+
+type Entidad= 'USUARIO' | 'PRODUCTO'
+type Accion= 'CREAR' | 'MODIFICAR' | 'BORRAR' | 'LISTAR'
+type Permisos= `${Entidad}_${Accion}`
+let permiso1:Permisos='USUARIO_BORRAR'
+console.log(permiso1)
+
+
+
+enum Direccion{
+        Norte=1,
+        Sur,
+        Este,
+        Oeste
+}
+console.log(Direccion)
