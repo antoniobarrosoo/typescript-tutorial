@@ -345,12 +345,106 @@ type Permisos= `${Entidad}_${Accion}`
 let permiso1:Permisos='USUARIO_BORRAR'
 console.log(permiso1)
 
+type TDireccion='NORTE' | 'SUR' | 'ESTE' | 'OESTE'
 
+// enum Direccion{
+//         Norte='Norte',
+//         Sur='Sur',
+//         Este='Este',
+//         Oeste='Oeste'
+// }
 
-enum Direccion{
-        Norte=1,
-        Sur,
-        Este,
-        Oeste
+// let d1:TDireccion= 'NORTE'
+// let d2:Direccion= Direccion.Este
+
+// console.log(Direccion['Este'])
+
+enum EstadoTicket{
+    Abierto,
+    EnProceso,
+    Cerrado
 }
-console.log(Direccion)
+//GUARDADO EN BASE DE DATOS
+let ticket={
+    nombre:'Ticket 1',
+    estado:EstadoTicket.Abierto
+}
+
+
+//OBJETO SE RECUPERA DE BASE DE DATOS
+//Estado ->0
+let estadoTicket=0
+
+switch(ticket.estado){
+    case EstadoTicket.Abierto:
+    console.log('TICKET ABIERTO')
+    break;
+    case EstadoTicket.EnProceso:
+        console.log('TICKET PROCESO')
+    break;
+    case EstadoTicket.Cerrado:
+        console.log('TICKET CERRADO')
+    break;
+    
+}
+
+//INTERFACES
+type IdCoche=`id-coche-${number}`
+interface Vehiculo{
+    readonly id:IdCoche
+    marca:string,
+    modelo:string,
+    anyo:number,
+    muestraInformacion:(propietario:string)=>void
+}
+
+interface Coche extends Vehiculo{
+    tamVolante:number
+}
+interface Moto extends Vehiculo{
+    tipoManillar:number
+}
+
+
+//CREACIÓN DE OBJETOS
+
+let miVehiculo:Vehiculo = {etiquetaEco:true, id:'id-coche-1', marca:'Seat', modelo:'Leon', anyo:2015, muestraInformacion: (propietario:string)=>{console.log(`El propiertario es ${propietario}`) }}
+miVehiculo.muestraInformacion('Jose')
+
+interface Vehiculo{
+    etiquetaEco:boolean
+}
+
+interface OperacionMatematica {
+    (a:number, b:number): number;
+}
+
+
+const suma:OperacionMatematica=(a:number, b:number)=>a+b;
+const resta:OperacionMatematica=(a:number, b:number)=>{return a-b};
+const multiplica:OperacionMatematica= function(d:number, e:number) {return d*e}
+
+class Persona{
+    constructor(public nombre:string, public apellidos:string, public edad:number){}
+}
+
+class Jugador extends Persona{
+    //Propiedades
+   
+    constructor(nombre:string, apellidos:string, edad:number, public alias:string, public estaActivo:boolean, public equipo?:string){
+        super(nombre,apellidos,edad);
+        this.alias=alias;
+        this.estaActivo=estaActivo;
+        this.equipo=equipo;
+    }
+
+    muestraInformacion(){
+        console.log(`El jugador ${this.alias} ${this.estaActivo ? 'está activo' : 'no está activo'} y juega en el equipo: ${this.equipo ?? 'sin equipo'}`);
+    }
+}
+
+let j1 = new Jugador('Luka', 'Modric', 38, 'Lukita', false, 'Real Madrid');
+j1.muestraInformacion();
+
+let j2 = new Jugador('Isco', 'Alarcón', 32, 'Isco', true, 'Real Betis');
+j2.muestraInformacion();
